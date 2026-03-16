@@ -6,7 +6,6 @@ datasource db {
   provider = "mysql"
 }
 
-
 model User {
   id         String   @id @default(uuid())
   name       String
@@ -19,4 +18,14 @@ model User {
   updated_at DateTime @updatedAt
 
   @@map("users")
+}
+
+model Category {
+  id         String   @id @default(uuid())
+  name       String
+  slug       String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("categories")
 }
